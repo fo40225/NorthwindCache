@@ -54,7 +54,8 @@ namespace Server
 
             for (; ; )
             {
-                var CategoryID = Convert.ToInt32(sr.ReadLine());
+                int CategoryID;
+                int.TryParse(sr.ReadLine(), out CategoryID);
                 var results = cacheIndexed.FindRows(CategoryID);
                 var Category = results.SingleOrDefault();
                 if (Category == null)
